@@ -7,10 +7,11 @@ import Data.Word
 
 tone
   :: Double -- ^ duration sec
+  -> Double -- ^ amplitude pct
   -> Word32 -- ^ sample rate
   -> Double -- ^ freq Hz
   -> Rap
-tone t sr f = [Stanza "RIFF" "WAVE"
+tone t a sr f = [Stanza "RIFF" "WAVE"
   [ Verse "fmt " $ runPut $ do
     putWord16le 0x0001
     putWord16le 1
@@ -20,7 +21,7 @@ tone t sr f = [Stanza "RIFF" "WAVE"
     putWord16le 16
     putWord16le 0
   , Verse "data" $ runPut $ foldMap (putInt16le . norm)
-    [ sin $ 2 * pi * f * fromIntegral i / fromIntegral sr
+    [ (a / 100) * sin (2 * pi * f * fromIntegral i / fromIntegral sr)
     | i <- [0 :: Integer .. round (fromIntegral sr * t) - 1]]
   ]]
 
