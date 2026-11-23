@@ -1,4 +1,4 @@
-# tonwav
+# Tone
 tone wav synthesizer
 
 Usage
@@ -19,5 +19,6 @@ Development
 ```
 cabal build
 cabal haddock
+cabal run test
 cabal run tone -- --help
 ```
