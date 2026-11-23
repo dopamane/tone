@@ -5,7 +5,7 @@ Usage
 
 ```
 tone --help
-tone 420 | aplay
+tone 440 | aplay
 ```
 
 Install
