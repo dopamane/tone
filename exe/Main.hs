@@ -7,7 +7,7 @@ import Data.Rap
 import Data.Version
 import Data.Word
 import Options.Applicative
-import Paths_tonwav
+import Paths_tone
 import Sound.Tone
 
 main :: IO ()
