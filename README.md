@@ -4,18 +4,20 @@ tone wav synthesizer
 Usage
 
 ```
-tonwav --help
-tonwav 420 | aplay
+tone --help
+tone 420 | aplay
 ```
 
 Install
 
 ```
-cabal install tonwav
+cabal install tone
 ```
 
 Development
 
 ```
 cabal build
+cabal haddock
+cabal run tone -- --help
 ```
