@@ -22,10 +22,7 @@ library
   ghc-options:      -Wall -O2
   hs-source-dirs:   lib
   exposed-modules:  Sound.Tone
-  build-depends:
-    base < 5,
-    binary,
-    rap
+  build-depends:    base < 5
 
 executable tone
   default-language: Haskell2010
