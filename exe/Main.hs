@@ -51,12 +51,12 @@ wav sr sound = [Stanza "RIFF" "WAVE"
     putWord16le 2
     putWord16le 16
     putWord16le 0
-  , Verse "data" $ runPut $ foldMap (putInt16le . norm) sound]]
+  , Verse "data" $ runPut $ foldMap (putInt16le . denorm) sound]]
 
-norm :: Double -> Int16
-norm d
+denorm :: Double -> Int16
+denorm d
   | d > 0 = fromIntegral $ min (maxb :: Integer) $ round (d * maxb)
-  | d < 0 = fromIntegral $ max (minb :: Integer) $ round (d * minb)
+  | d < 0 = fromIntegral $ max (minb :: Integer) $ negate $ round (d * minb)
   | otherwise = 0
 
 maxb :: Num a => a
